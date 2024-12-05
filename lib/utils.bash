@@ -39,6 +39,10 @@ list_all_versions() {
 get_arch() {
 	local arch
 	arch=${ARCH:-"$(uname -m)"}
+	case "${arch}" in
+	"arm64")
+		arch="aarch64";;
+	esac
 	echo "${arch}"
 }
 
