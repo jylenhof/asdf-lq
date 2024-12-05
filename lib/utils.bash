@@ -36,7 +36,6 @@ list_all_versions() {
 	list_github_tags
 }
 
-
 get_arch() {
 	local arch
 	arch=${ARCH:-"$(uname -m)"}
@@ -67,7 +66,7 @@ download_release() {
 	arch="$(get_arch)"
 	os="$(get_os)"
 
-	url="$GH_REPO/release/download/v${version}/lq-${arch}-${os}.tar.xz"
+	url="$GH_REPO/release/download/${version}/lq-${arch}-${os}.tar.xz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
