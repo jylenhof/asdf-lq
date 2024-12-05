@@ -38,7 +38,8 @@ get_arch() {
 	arch=${ARCH:-"$(uname -m)"}
 	case "${arch}" in
 	"arm64")
-		arch="aarch64";;
+		arch="aarch64"
+		;;
 	esac
 	echo "${arch}"
 }
