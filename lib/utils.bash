@@ -68,7 +68,11 @@ download_release() {
 	arch="$(get_arch)"
 	os="$(get_os)"
 
-	url="$GH_REPO/releases/${version}/download/lq-${arch}-${os}.tar.xz"
+	if [ "${version}" == "latest" ]; then
+		url="$GH_REPO/releases/${version}/download/lq-${arch}-${os}.tar.xz"
+	else
+		url="$GH_REPO/releases/download/${version}/lq-${arch}-${os}.tar.xz"
+	fi
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
